@@ -1,5 +1,7 @@
 "use client";
 import React from "react";
+import Image from "next/image";
+import Rev from "@/public/rev.png"; // ✅ make sure this image exists in /public
 
 export default function Hero() {
   return (
@@ -8,38 +10,62 @@ export default function Hero() {
       className="w-full bg-white py-20 md:py-28 border-b border-gray-100"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-10 grid md:grid-cols-2 gap-12 items-center">
-        {/* Left text content */}
-        <div>
-          <h1 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 leading-tight">
-            Elevate Your Look with <br />
-            <span className="bg-gradient-to-r from-yellow-500 to-yellow-700 bg-clip-text text-transparent">
-              Luxe Hair Coaching
-            </span>
+        {/* ---------- LEFT TEXT CONTENT ---------- */}
+        <div className="text-center md:text-left space-y-6">
+          {/* Tagline */}
+          {/* <p className="uppercase font-semibold text-sm tracking-widest text-[#0039FF]">
+            The Ultimate Business Course for Independent
+            <br className="hidden sm:block" />
+            <span className="block mt-2">Stylists</span>
+          </p> */}
+
+          {/* Heading */}
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
+            Build a six-figure styling business{" "}
+            <br className="hidden sm:block" />
+            without burning out behind the chair.
           </h1>
-          <p className="mt-6 text-gray-600 text-base md:text-lg leading-relaxed">
-            Personalized coaching sessions that help you master your hair care,
-            understand your unique texture, and achieve salon-quality results at
-            home.
+
+          {/* Description */}
+          <p className="text-lg text-gray-600 max-w-xl mx-auto md:mx-0">
+            Master goal-setting, mindset, and KPI tracking to skyrocket your
+            styling business!
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-4">
-            <a
-              href="#book"
-              className="px-6 py-3 rounded-full bg-gradient-to-r from-yellow-500 to-yellow-700 text-white text-sm font-semibold shadow-sm hover:shadow-lg transition-all"
-            >
-              Book a Free Call
-            </a>
-            <a
-              href="#services"
-              className="px-6 py-3 rounded-full border border-yellow-600 text-yellow-700 font-semibold text-sm hover:bg-yellow-50 transition"
-            >
-              View Services
-            </a>
-          </div>
+          {/* CTA Button */}
+          <a
+            href="#learn"
+            className="inline-block mt-6 px-22 py-4 text-white text-lg font-semibold rounded-xl bg-[#0039FF] shadow-md hover:shadow-lg transform hover:-translate-y-2 transition-all duration-300"
+          >
+            Get Started
+          </a>
         </div>
 
-        {/* Right side - YouTube video */}
-       <iframe className="rounded-2xl" width="560" height="315" src="https://www.youtube.com/embed/TMfLA3fpGVo?si=joe_6CFo70bkQAKz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        {/* ---------- RIGHT SIDE: VIDEO + IMAGE ---------- */}
+        <div className="flex flex-col items-center space-y-6">
+          {/* YouTube Video */}
+          <div className="relative w-full h-[260px] sm:h-[320px] md:h-[400px] lg:h-[450px] rounded-2xl overflow-hidden shadow-xl">
+            <iframe
+              className="absolute inset-0 w-full h-full rounded-2xl"
+              src="https://www.youtube.com/embed/TMfLA3fpGVo?si=joe_6CFo70bkQAKz"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            ></iframe>
+          </div>
+
+          {/* Image Below Video */}
+          <div className="w-full flex r">
+            <Image
+            src={Rev}
+              alt="Hair coaching session"
+              width={310}
+              height={10}
+            />
+          </div>
+        </div>
       </div>
     </section>
   );
