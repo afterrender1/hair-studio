@@ -1,22 +1,23 @@
 "use client";
+
 import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 
 const DEFAULT_VIDEOS = [
-  { id: "dEd65H0_2R4?si=3Mzk9PYGyvNEBv8m", title: "Intro to Salon Business" },
-  { id: "BSVY0C8osbM?si=-0zUbDxCngcFoE3j", title: "Advanced Cutting Techniques" },
-  { id: "5Fbwd_Pdykk?si=g3ebZ8oujffqzvRZ", title: "Beard Shaping Tutorial" },
-  { id: "9U7XJSJIxwg?si=nAewmhrYk8SDV298", title: "Styling for Events" },
-  { id: "EmAuxaDAHA8?si=X_dCIuUNwpdMShkh", title: "Color Basics" },
-  { id: "OjVoPJ07Wsc?si=vSvaveOgbDREIs_2", title: "Client Consultation Tips" },
+  { id: "dEd65H0_2R4", title: "Intro to Salon Business" },
+  { id: "BSVY0C8osbM", title: "Advanced Cutting Techniques" },
+  { id: "5Fbwd_Pdykk", title: "Beard Shaping Tutorial" },
+  { id: "9U7XJSJIxwg", title: "Styling for Events" },
+  { id: "EmAuxaDAHA8", title: "Color Basics" },
+  { id: "OjVoPJ07Wsc", title: "Client Consultation Tips" },
 ];
 
 export default function LearnWithUs({ videos = DEFAULT_VIDEOS }) {
   const sectionRef = useRef(null);
 
-  // 🌊 Cursor parallax effect
+  // 🌊 Smooth parallax movement on mouse move
   const handleMouseMove = (e) => {
     const section = sectionRef.current;
     if (!section) return;
@@ -27,25 +28,23 @@ export default function LearnWithUs({ videos = DEFAULT_VIDEOS }) {
   };
 
   const handleMouseLeave = () => {
-    const section = sectionRef.current;
-    if (section) section.style.transform = "translate(0px, 0px)";
+    if (sectionRef.current) sectionRef.current.style.transform = "translate(0px, 0px)";
   };
 
   return (
     <section
       id="learn"
-      className="py-28 bg-gradient-to-br from-sky-50 to-blue-50 overflow-hidden transition-transform duration-500"
       ref={sectionRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      className="py-28 bg-gradient-to-br from-sky-50 to-blue-50 overflow-hidden transition-transform duration-500"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         {/* Header */}
         <div className="mb-16 text-center">
-           <h2 className="text-4xl font-semibold
- text-center mb-3 text-sky-400">
-           Learn With Luxe Hair Studio
-        </h2>
+          <h2 className="text-4xl font-semibold text-sky-400">
+            Learn With Luxe Hair Studio
+          </h2>
           <p className="mt-4 text-gray-700 text-lg md:text-2xl max-w-2xl mx-auto">
             Master salon skills with expert tutorials, cutting-edge techniques, and insider tips.
           </p>
@@ -72,11 +71,10 @@ export default function LearnWithUs({ videos = DEFAULT_VIDEOS }) {
         >
           {videos.map((v, i) => (
             <SwiperSlide key={v.id + i} className="group">
-              <div className="bg-white rounded-3xl overflow-hidden">
-                {/* Embedded YouTube Video */}
+              <div className="bg-white rounded-3xl overflow-hidden ">
                 <div className="relative w-full aspect-[16/9]">
                   <iframe
-                    src={`https://www.youtube.com/embed/${v.id}`}
+                    src={`https://www.youtube-nocookie.com/embed/${v.id}`}
                     title={v.title}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
@@ -84,7 +82,6 @@ export default function LearnWithUs({ videos = DEFAULT_VIDEOS }) {
                   ></iframe>
                 </div>
 
-                {/* Meta Info */}
                 <div className="px-8 py-6 text-center bg-gradient-to-b from-white to-gray-50">
                   <h3 className="text-xl font-bold text-gray-900 group-hover:text-sky-600 transition-colors">
                     {v.title}

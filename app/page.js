@@ -5,6 +5,8 @@ import WhoWeAre from "@/components/whoweare";
 import LearnWithUs from "@/components/Learnwithus";
 import Services from "@/components/Services";
 import Testimonials from "@/components/Testimonial";
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 export default function Home() {
   return (
   <>
@@ -14,6 +16,8 @@ export default function Home() {
   <WhoWeAre/>
   <LearnWithUs/>
   <Testimonials/>
+  <Contact/>
+  <Footer/>
   </>
   );
 }

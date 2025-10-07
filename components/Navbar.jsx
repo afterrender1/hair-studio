@@ -20,13 +20,13 @@ export default function Navbar() {
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
     { name: "Services", href: "#services" },
-    { name: "Gallery", href: "#gallery" },
-    { name: "Reviews", href: "#reviews" },
+    { name: "Contact", href: "#contact" },
+    { name: "Reviews", href: "#testimonials" },
   ];
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md transition-all duration-700 
+      className={`fixed top-0 left-0 right-0 z-50  transition-all duration-700 
       ${showNav ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10 pointer-events-none"}`}
     >
       <div className="mx-30 px-4 sm:px-6 lg:px-8">
@@ -72,7 +72,7 @@ export default function Navbar() {
               <span className="text-white">+1 (555) 123-4567</span>
             </p>
             <a
-              href="#book"
+              href="#contact"
               className="px-5 py-2 rounded-full bg-sky-400 text-white text-sm font-semibold shadow-sm hover:shadow-lg transition-all"
             >
               Get Started
