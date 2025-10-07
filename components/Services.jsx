@@ -23,12 +23,32 @@ import Hairstyle2 from "@/public/hairstyle2.png";
 import Hairstyle3 from "@/public/hairstyle3.png";
 import Hairstyle4 from "@/public/hairstyle4.png";
 
-// ✅ Organized all services with imported images
+// ✅ Organized all services with image + name
 const allServices = {
-  Haircut: [Haircut1, Haircut2, Haircut3, Haircut4],
-  Shaving: [Shaving1, Shaving2, Shaving3, Shaving4],
-  Trimming: [Trimming1, Trimming2, Trimming3, Trimming4],
-  Hairstyle: [Hairstyle1, Hairstyle2, Hairstyle3, Hairstyle4],
+  Haircut: [
+    { img: Haircut1, name: "Classic Haircut" },
+    { img: Haircut2, name: "Modern Cut" },
+    { img: Haircut3, name: "Fade Style" },
+    { img: Haircut4, name: "Gentlemen’s Trim" },
+  ],
+  Shaving: [
+    { img: Shaving1, name: "Clean Shave" },
+    { img: Shaving2, name: "Royal Shave" },
+    { img: Shaving3, name: "Beard Styling" },
+    { img: Shaving4, name: "Hot Towel Shave" },
+  ],
+  Trimming: [
+    { img: Trimming1, name: "Beard Trim" },
+    { img: Trimming2, name: "Neckline Trim" },
+    { img: Trimming3, name: "Mustache Trim" },
+    { img: Trimming4, name: "Precision Trim" },
+  ],
+  Hairstyle: [
+    { img: Hairstyle1, name: "Slick Back" },
+    { img: Hairstyle2, name: "Pompadour" },
+    { img: Hairstyle3, name: "Textured Crop" },
+    { img: Hairstyle4, name: "Side Part" },
+  ],
 };
 
 export default function Services() {
@@ -36,22 +56,26 @@ export default function Services() {
   const filters = Object.keys(allServices);
 
   return (
-    <section className="py-16 bg-sky-50" id="services">
+    <section className="py-20 bg-sky-50" id="services">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
-        <h2 className="text-3xl font-bold text-center mb-8 text-sky-400">
-          Our Services
+        <h2 className="text-4xl font-semibold
+ text-center mb-3 text-sky-400">
+           Services
         </h2>
+        <p className="text-center text-gray-600 text-lg mb-10">
+          Discover professional grooming and styling crafted just for you.
+        </p>
 
         {/* Filter Buttons */}
-        <div className="flex justify-center gap-4 mb-12 flex-wrap">
+        <div className="flex justify-center gap-5 mb-10 flex-wrap">
           {filters.map((f) => (
             <button
               key={f}
               onClick={() => setFilter(f)}
-              className={`px-5 py-2 rounded-full font-medium transition-all duration-300 ${
+              className={`px-6 py-2 rounded-t-lg font-semibold transition-all duration-300 text-sm sm:text-base ${
                 filter === f
-                  ? "bg-sky-400 text-white shadow-md scale-105"
+                  ? "bg-sky-400 text-white shadow-lg scale-105"
                   : "bg-white text-gray-700 hover:bg-sky-100 border border-sky-200"
               }`}
             >
@@ -60,20 +84,27 @@ export default function Services() {
           ))}
         </div>
 
-        {/* Image Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-          {allServices[filter].map((img, index) => (
+        {/* Image Grid - No Hover Effects */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {allServices[filter].map((item, index) => (
             <div
               key={index}
-              className="relative overflow-hidden rounded-2xl cursor-pointer group shadow-md hover:shadow-xl transition-all duration-300"
+              className="overflow-hidden rounded-3xl shadow-lg bg-white"
             >
-              <Image
-                src={img}
-                alt={filter}
-                className="object-cover w-full h-64 transform group-hover:scale-110 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-sky-400/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-lg font-semibold">
-                {filter}
+              <div className="relative w-full aspect-[4/5]">
+                <Image
+                  src={item.img}
+                  alt={item.name}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              {/* Caption */}
+              <div className="text-center py-4">
+                <h3 className="text-lg font-semibold text-gray-800">
+                  {item.name}
+                </h3>
               </div>
             </div>
           ))}
