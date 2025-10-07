@@ -175,8 +175,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="font-medium text-gray-900">Email</p>
-                    <a href="mailto:contact@afterrender.com" className="text-sky-500 hover:underline">
-                      contact@afterrender.com
+                    <a href="mailto:contact@deigo.com" className="text-sky-500 hover:underline">
+                      contact@deigo.com
                     </a>
                   </div>
                 </li>

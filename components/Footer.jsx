@@ -43,7 +43,7 @@ export default function Footer() {
               <Phone className="w-5 h-5" /> +1 (555) 123-4567
             </li>
             <li className="flex items-center gap-3">
-              <Mail className="w-5 h-5" /> contact@afterrender.com
+              <Mail className="w-5 h-5" /> contact@deigo.com
             </li>
             <li className="flex items-center gap-3">
               <MapPin className="w-5 h-5" /> New York, United States

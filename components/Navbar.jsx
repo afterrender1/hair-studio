@@ -26,99 +26,90 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 
-      ${showNav ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10 pointer-events-none"}`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20 gap-4 md:gap-6">
-          
-          {/* Brand */}
+  className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 mx-auto 
+  ${showNav ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10 pointer-events-none"}`}
+>
+  {/* Container: full width with max-width and responsive padding */}
+  <div className="px-4 sm:px-6 lg:px-8 max-w-full mx-6   sm:mx-5  lg:mx-6 xl:mx-30 2xl:mx-30">
+    <div className="flex items-center justify-between h-20 gap-4 md:gap-6">
+      
+      {/* Brand */}
+      <a
+        href="#home"
+        className="text-2xl font-serif font-bold tracking-wide flex items-center gap-1 whitespace-nowrap"
+      >
+        <span className="bg-sky-400 bg-clip-text text-transparent">Deigo</span>
+        <span className="text-white">Hair Studio</span>
+      </a>
+
+      {/* Desktop Nav Links */}
+      <div className="hidden md:flex items-center flex-1 justify-center space-x-6 lg:space-x-10">
+        {navLinks.map((link) => (
           <a
-            href="#home"
-            className="text-2xl font-serif font-bold tracking-wide flex items-center gap-1 whitespace-nowrap"
+            key={link.name}
+            href={link.href}
+            className="text-sm font-medium text-white hover:text-sky-400 transition-colors duration-300"
           >
-            <span className="bg-sky-400 bg-clip-text text-transparent">Deigo</span>
-            <span className="text-white">Hair Studio</span>
+            {link.name}
           </a>
-
-          {/* Search Bar */}
-      
-
-          {/* Desktop Nav Links */}
-          <div className="hidden md:flex items-center flex-1 justify-center space-x-6 lg:space-x-10">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-sm font-medium text-white hover:text-sky-400 transition-colors duration-300"
-              >
-                {link.name}
-              </a>
-            ))}
-          </div>
-
-          {/* Desktop Contact Info + Button */}
-          <div className="hidden md:flex items-center gap-4 lg:gap-6 whitespace-nowrap">
-            <p className="font-semibold text-white flex items-center gap-2 text-sm lg:text-base">
-              <Phone className="text-sky-400 w-4 h-4 lg:w-5 lg:h-5" />
-              +1 (555) 123-4567
-            </p>
-            <a
-              href="#contact"
-              className="px-4 lg:px-5 py-2 rounded-full bg-sky-400 text-white text-sm lg:text-base font-semibold shadow-sm hover:shadow-lg transition-all"
-            >
-              Get Started
-            </a>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2 rounded-md hover:bg-white/10 transition"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? (
-              <X className="w-6 h-6 text-white" />
-            ) : (
-              <Menu className="w-6 h-6 text-white" />
-            )}
-          </button>
-        </div>
-
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden mt-2 bg-black/70 backdrop-blur-md border-t border-white/20 pb-6 animate-fadeIn rounded-lg">
-            {/* Mobile Search */}
-      
-
-            {/* Mobile Links */}
-            <div className="flex flex-col space-y-4 pt-4 px-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-white hover:text-sky-400 text-base font-medium transition-colors"
-                >
-                  {link.name}
-                </a>
-              ))}
-
-              {/* Contact Info */}
-              <p className="text-white font-semibold text-center mt-2 text-sm">
-                📞 +1 (555) 123-4567
-              </p>
-
-              {/* Mobile Button */}
-              <a
-                href="#contact"
-                className="w-full text-center px-5 py-2 rounded-full bg-sky-400 text-white text-base font-semibold shadow-sm hover:shadow-lg transition-all"
-              >
-                Get Started
-              </a>
-            </div>
-          </div>
-        )}
+        ))}
       </div>
-    </nav>
+
+      {/* Desktop Contact Info + Button */}
+      <div className="hidden md:flex items-center gap-4 lg:gap-6 whitespace-nowrap">
+        <p className="font-semibold text-white flex items-center gap-2 text-sm lg:text-base">
+          <Phone className="text-sky-400 w-4 h-4 lg:w-5 lg:h-5" />
+          +1 (555) 123-4567
+        </p>
+        <a
+          href="#contact"
+          className="px-4 lg:px-5 py-2 rounded-full bg-sky-400 text-white text-sm lg:text-base font-semibold shadow-sm hover:shadow-lg transition-all"
+        >
+          Get Started
+        </a>
+      </div>
+
+      {/* Mobile Menu Button */}
+      <button
+        className="md:hidden p-2 rounded-md hover:bg-white/10 transition"
+        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+      >
+        {isMobileMenuOpen ? <X className="w-6 h-6 text-white" /> : <Menu className="w-6 h-6 text-white" />}
+      </button>
+    </div>
+
+    {/* Mobile Menu */}
+    {isMobileMenuOpen && (
+      <div className="md:hidden mt-2 bg-black/70 backdrop-blur-md border-t border-white/20 pb-6 animate-fadeIn rounded-lg">
+        <div className="flex flex-col space-y-4 pt-4 px-4">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-white hover:text-sky-400 text-base font-medium transition-colors"
+            >
+              {link.name}
+            </a>
+          ))}
+
+          {/* Contact Info */}
+          <p className="text-white font-semibold text-center mt-2 text-sm">
+            📞 +1 (555) 123-4567
+          </p>
+
+          {/* Mobile Button */}
+          <a
+            href="#contact"
+            className="w-full text-center px-5 py-2 rounded-full bg-sky-400 text-white text-base font-semibold shadow-sm hover:shadow-lg transition-all"
+          >
+            Get Started
+          </a>
+        </div>
+      </div>
+    )}
+  </div>
+</nav>
+
   );
 }
