@@ -86,7 +86,7 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-2 bg-black/70 backdrop-blur-md border-t border-white/20 pb-6 animate-fadeIn">
+          <div className="md:hidden mt-2 bg-black/70 backdrop-blur-md border-t border-white/20 pb-6 animate-fadeIn rounded-lg">
             {/* Mobile Search */}
       
 
