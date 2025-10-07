@@ -3,34 +3,35 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
+import Image from "next/image";
+
 import Review1 from "@/public/review1.png";
 import Review2 from "@/public/review2.png";
 import Review3 from "@/public/review3.png";
-import Image from "next/image";
 
 const testimonials = [
   {
     id: 1,
     rating: 5,
-    text: "I came in for a haircut and left feeling like a whole new person! The team at Luxe Hair Studio really listens and tailors every detail to your style. My stylist explained what would suit my face shape and gave me the best fade I’ve ever had. Highly recommended!",
-    name: "Kristian Watson",
-    role: "Business Manager",
+    text: "Diego Hair Studio’s coaching boosted my confidence with advanced cutting techniques and practical, one-on-one guidance. Truly transformative!",
+    name: "Ethan Carter",
+    role: "Salon Owner — California",
     image: Review1,
   },
   {
     id: 2,
-    rating: 4,
-    text: "From the ambiance to the service, everything felt luxurious yet welcoming. I got a beard trim and scalp treatment — both were done with such precision. It’s rare to find a salon that balances skill and comfort so perfectly.",
-    name: "Kristian Watson",
-    role: "UI Developer",
+    rating: 5,
+    text: "Before joining Diego’s coaching program, I struggled with modern fades and precision styling. Within weeks, my technique and speed improved dramatically.",
+    name: "Emily Parker",
+    role: "Professional Barber — Los Angeles",
     image: Review2,
   },
   {
     id: 3,
     rating: 4,
-    text: "I’ve been visiting Luxe Hair Studio for over a year now. Every visit feels consistent and personal. They always use top-quality products and ensure my hair stays healthy and stylish. The staff truly care about their clients.",
-    name: "Kristian Watson",
-    role: "Business CEO",
+    text: "The mentorship I received from Diego Hair Studio was exactly what I needed to take my hairstyling career to the next level. Diego’s feedback is always constructive and inspiring.",
+    name: "Logan Mitchell",
+    role: "Hair Stylist — Los Angeles",
     image: Review3,
   },
 ];
@@ -38,37 +39,36 @@ const testimonials = [
 export default function Testimonials() {
   return (
     <section className="py-20 bg-sky-50" id="testimonials">
-      <div className="mx-40 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
         {/* Header */}
         <div className="mb-12 text-center">
           <h2 className="text-4xl font-bold text-sky-400 mb-4">
             What Our Clients Say About Us
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Our customers love the Luxe experience — professional, personalized, and always premium.
+            Our customers love the Deigo experience — professional, personalized, and always premium.
           </p>
         </div>
 
-        {/* Testimonials Carousel */}
+        {/* Carousel */}
         <Swiper
           modules={[Autoplay]}
           spaceBetween={30}
-          slidesPerView={3}
+          slidesPerView={1.1}
           loop={true}
           autoplay={{
             delay: 3000,
             disableOnInteraction: false,
           }}
           breakpoints={{
-            320: { slidesPerView: 1 },
-            640: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
+            640: { slidesPerView: 2, spaceBetween: 20 },
+            1024: { slidesPerView: 3, spaceBetween: 30 },
           }}
           className="py-10"
         >
           {testimonials.map((testimonial) => (
             <SwiperSlide key={testimonial.id}>
-              <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+              <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-md hover:shadow-lg transition-all duration-300 flex flex-col h-full">
                 {/* Rating */}
                 <div className="flex justify-center mb-4">
                   {Array.from({ length: testimonial.rating }, (_, i) => (
@@ -79,11 +79,13 @@ export default function Testimonials() {
                   ))}
                 </div>
 
-                {/* Text */}
-                <p className="text-gray-700 text-sm mb-6 leading-relaxed">{testimonial.text}</p>
+                {/* Testimonial Text */}
+                <p className="text-gray-700 text-sm md:text-base mb-6 flex-grow leading-relaxed">
+                  {testimonial.text}
+                </p>
 
                 {/* Author Info */}
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-4 mt-auto">
                   <Image
                     className="rounded-full shadow-sm"
                     src={testimonial.image}

@@ -4,7 +4,6 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
-// ✅ Import all your local images
 import Haircut1 from "@/public/haircut1.png";
 import Haircut2 from "@/public/haircut2.png";
 import Haircut3 from "@/public/haircut3.png";
@@ -25,7 +24,6 @@ import Hairstyle2 from "@/public/hairstyle2.png";
 import Hairstyle3 from "@/public/hairstyle3.png";
 import Hairstyle4 from "@/public/hairstyle4.png";
 
-// ✅ Organized all services with image + name
 const allServices = {
   Haircut: [
     { img: Haircut1, name: "Classic Haircut" },
@@ -57,25 +55,14 @@ export default function Services() {
   const [filter, setFilter] = useState("Haircut");
   const filters = Object.keys(allServices);
 
-  // 🌟 Fast + Smooth animation variants
   const fadeUp = {
     hidden: { opacity: 0, scale: 0.85, y: 15 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      y: 0,
-      transition: { duration: 0.15, ease: "easeOut" },
-    },
-    exit: {
-      opacity: 0,
-      scale: 0.9,
-      y: -10,
-      transition: { duration: 0.12, ease: "easeIn" },
-    },
+    visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.15, ease: "easeOut" } },
+    exit: { opacity: 0, scale: 0.9, y: -10, transition: { duration: 0.12, ease: "easeIn" } },
   };
 
   return (
-    <section className="py-20 bg-sky-50 overflow-hidden" id="services">
+    <section className="py-16 md:py-20 bg-sky-50 overflow-hidden" id="services">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
         <motion.div
@@ -85,8 +72,8 @@ export default function Services() {
           viewport={{ once: true }}
           className="text-center mb-10"
         >
-          <h2 className="text-4xl font-semibold text-sky-400">Services</h2>
-          <p className="mt-4 mb-9 text-gray-700 text-lg md:text-2xl max-w-2xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-semibold text-sky-400">Services</h2>
+          <p className="mt-4 mb-9 text-gray-700 text-base sm:text-lg md:text-xl lg:text-2xl max-w-2xl mx-auto">
             Discover professional grooming and styling crafted just for you.
           </p>
         </motion.div>
@@ -97,13 +84,13 @@ export default function Services() {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
           viewport={{ once: true }}
-          className="flex justify-center gap-5 mb-10 flex-wrap"
+          className="flex justify-center gap-3 sm:gap-5 mb-10 flex-wrap"
         >
           {filters.map((f) => (
             <button
               key={f}
               onClick={() => setFilter(f)}
-              className={`px-6 py-2 rounded-full font-semibold transition-all duration-300 text-sm sm:text-base ${
+              className={`px-5 sm:px-6 py-2 sm:py-3 rounded-full font-semibold text-sm sm:text-base transition-all duration-300 ${
                 filter === f
                   ? "bg-sky-400 text-white shadow-lg scale-105"
                   : "bg-white text-gray-700 hover:bg-sky-100 border border-sky-200"
@@ -114,8 +101,8 @@ export default function Services() {
           ))}
         </motion.div>
 
-        {/* Image Grid with AnimatePresence */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Image Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
           <AnimatePresence mode="wait">
             {allServices[filter].map((item, index) => (
               <motion.div
@@ -132,11 +119,11 @@ export default function Services() {
                     src={item.img}
                     alt={item.name}
                     fill
-                    className="object-cover"
+                    className="object-cover rounded-3xl"
                   />
                 </div>
-                <div className="text-center py-4">
-                  <h3 className="text-lg font-semibold text-gray-800">
+                <div className="text-center py-4 px-2">
+                  <h3 className="text-base sm:text-lg md:text-lg lg:text-xl font-semibold text-gray-800">
                     {item.name}
                   </h3>
                 </div>
