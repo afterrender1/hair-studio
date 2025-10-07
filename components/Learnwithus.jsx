@@ -42,7 +42,7 @@ export default function LearnWithUs({ videos = DEFAULT_VIDEOS }) {
         {/* Header */}
         <div className="mb-12 md:mb-16 text-center">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-sky-400">
-            Learn With Luxe Hair Studio
+            Learn With Deigo Hair Studio
           </h2>
           <p className="mt-4 text-gray-700 text-base sm:text-lg md:text-xl max-w-2xl mx-auto">
             Master salon skills with expert tutorials, cutting-edge techniques, and insider tips.
@@ -87,7 +87,7 @@ export default function LearnWithUs({ videos = DEFAULT_VIDEOS }) {
                   <h3 className="text-lg md:text-xl font-bold text-gray-900 group-hover:text-sky-600 transition-colors">
                     {v.title}
                   </h3>
-                  <p className="text-sm md:text-base text-gray-500 mt-2">By Luxe Studio Experts</p>
+                  <p className="text-sm md:text-base text-gray-500 mt-2">By Deigo Studio Experts</p>
                   <div className="mt-3 md:mt-4 flex justify-center">
                     <span className="inline-flex items-center px-3 py-1 rounded-full text-xs md:text-sm font-medium bg-sky-100 text-sky-800">
                       Tutorial

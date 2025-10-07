@@ -72,7 +72,9 @@ export default function Services() {
           viewport={{ once: true }}
           className="text-center mb-10"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-semibold text-sky-400">Services</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-semibold text-sky-400">
+            Services
+          </h2>
           <p className="mt-4 mb-9 text-gray-700 text-base sm:text-lg md:text-xl lg:text-2xl max-w-2xl mx-auto">
             Discover professional grooming and styling crafted just for you.
           </p>
@@ -84,13 +86,13 @@ export default function Services() {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
           viewport={{ once: true }}
-          className="flex justify-center gap-3 sm:gap-5 mb-10 flex-wrap"
+          className="flex justify-center gap-1 sm:gap-5 mb-10 flex-wrap"
         >
           {filters.map((f) => (
             <button
               key={f}
               onClick={() => setFilter(f)}
-              className={`px-5 sm:px-6 py-2 sm:py-3 rounded-full font-semibold text-sm sm:text-base transition-all duration-300 ${
+              className={`px-3 sm:px-6 py-2 sm:py-3 rounded-t-md font-semibold text-sm sm:text-base transition-all duration-300 ${
                 filter === f
                   ? "bg-sky-400 text-white shadow-lg scale-105"
                   : "bg-white text-gray-700 hover:bg-sky-100 border border-sky-200"
@@ -102,7 +104,7 @@ export default function Services() {
         </motion.div>
 
         {/* Image Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
           <AnimatePresence mode="wait">
             {allServices[filter].map((item, index) => (
               <motion.div
@@ -112,18 +114,18 @@ export default function Services() {
                 animate="visible"
                 exit="exit"
                 transition={{ duration: 0.15, delay: index * 0.03 }}
-                className="overflow-hidden rounded-3xl shadow-lg bg-white hover:shadow-2xl hover:-translate-y-2 transform transition-all"
+                className="overflow-hidden rounded-2xl sm:rounded-3xl shadow-lg bg-white hover:shadow-2xl hover:-translate-y-1 sm:hover:-translate-y-2 transform transition-all"
               >
                 <div className="relative w-full aspect-[4/5]">
                   <Image
                     src={item.img}
                     alt={item.name}
                     fill
-                    className="object-cover rounded-3xl"
+                    className="object-cover rounded-2xl sm:rounded-3xl"
                   />
                 </div>
-                <div className="text-center py-4 px-2">
-                  <h3 className="text-base sm:text-lg md:text-lg lg:text-xl font-semibold text-gray-800">
+                <div className="text-center py-3 sm:py-4 px-2">
+                  <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-gray-800">
                     {item.name}
                   </h3>
                 </div>

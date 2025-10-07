@@ -14,20 +14,20 @@ export default function Hero() {
   const slides = [
     {
       img: Rebanner1,
-      title: `Experience the<br />Ultimate in Hair Care<br />at our <span class='text-sky-400'>Salon</span>`,
-      desc: "Master goal-setting, mindset, and KPI tracking to skyrocket your styling business!",
+      title: `Master your Haircut skills with Diego, style with confidence`,
+      desc: "Learn cutting-edge techniques from Diego’s expert guidance. Achieve precision and confidence in every style",
       btn: "Get Started",
     },
     {
       img: Rebanner2,
-      title: `Experience the<br />Ultimate in Hair Care<br />at our <span class='text-sky-400'>Salon</span>`,
-      desc: "Learn proven systems to scale your beauty brand without burnout.",
+      title: `Master your Haircut skills with Diego, style with confidence`,
+      desc: "Hands-on coaching designed to elevate your hairstyling skills. Transform your passion into professional mastery.",
       btn: "Get Started",
     },
     {
       img: Rebanner3,
-      title: `Experience the<br />Ultimate in Hair Care<br />at our <span class='text-sky-400'>Salon</span>`,
-      desc: "Discover the business and creative tools to become an elite independent stylist.",
+      title: `Master your Haircut skills with Diego, style with confidence`,
+      desc: "Step into Diego’s studio for personalized hair coaching. Perfect your craft and impress every client",
       btn: "Get Started",
     },
   ];
