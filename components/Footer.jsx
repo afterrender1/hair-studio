@@ -55,7 +55,7 @@ export default function Footer() {
         <div>
           <h3 className="text-xl font-semibold mb-4">Working Hours</h3>
           <ul className="space-y-2 text-white/90">
-            <li className="flex items-center gap-3"><Clock className="w-5 h-5" /> Mon – Sat: 11:00 AM – 8:00 PM</li>
+            <li className="flex items-center gap-3"><Clock className="w-5 h-5" /> Mon – Fri: 11:00 AM – 8:00 PM</li>
             <li className="flex items-center gap-3"><Clock className="w-5 h-5" /> Sunday: Closed</li>
           </ul>
         </div>
@@ -63,7 +63,7 @@ export default function Footer() {
 
       {/* Divider & Copyright */}
       <div className="border-t border-white/20 mt-10 pt-6 text-center text-white/80 text-sm">
-        © {new Date().getFullYear()} Diego Hair Studio. All rights reserved.
+        © {new Date().getFullYear()} Afterrender. All rights reserved.
       </div>
     </footer>
   );
