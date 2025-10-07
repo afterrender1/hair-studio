@@ -1,81 +1,105 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
 
-export default function LearnWithUs() {
-  const topics = [
-    {
-      title: "1:1 Hair Coaching",
-      desc: "Personalized sessions to master your routine and learn what your hair truly needs.",
-      img: "/learn1.jpg",
-    },
-    {
-      title: "Healthy Hair Habits",
-      desc: "Learn how nutrition, scalp care, and product choice work together for lasting results.",
-      img: "/learn2.jpg",
-    },
-    {
-      title: "Styling Masterclass",
-      desc: "Discover salon-quality styling techniques you can easily do at home.",
-      img: "/learn3.jpg",
-    },
-  ];
+const DEFAULT_VIDEOS = [
+  { id: "dEd65H0_2R4?si=3Mzk9PYGyvNEBv8m", title: "Intro to Salon Business" },
+  { id: "BSVY0C8osbM?si=-0zUbDxCngcFoE3j", title: "Advanced Cutting Techniques" },
+  { id: "5Fbwd_Pdykk?si=g3ebZ8oujffqzvRZ", title: "Beard Shaping Tutorial" },
+  { id: "9U7XJSJIxwg?si=nAewmhrYk8SDV298", title: "Styling for Events" },
+  { id: "EmAuxaDAHA8?si=X_dCIuUNwpdMShkh", title: "Color Basics" },
+  { id: "OjVoPJ07Wsc?si=vSvaveOgbDREIs_2", title: "Client Consultation Tips" },
+];
 
-  // 🔁 Auto-generate more cards (repeat twice = 6 total)
-  const extendedTopics = [...topics, ...topics];
+export default function LearnWithUs({ videos = DEFAULT_VIDEOS }) {
+  const sectionRef = useRef(null);
+
+  // 🌊 Cursor parallax effect
+  const handleMouseMove = (e) => {
+    const section = sectionRef.current;
+    if (!section) return;
+    const { left, top, width, height } = section.getBoundingClientRect();
+    const x = (e.clientX - left) / width - 0.5;
+    const y = (e.clientY - top) / height - 0.5;
+    section.style.transform = `translate(${x * 10}px, ${y * 10}px)`;
+  };
+
+  const handleMouseLeave = () => {
+    const section = sectionRef.current;
+    if (section) section.style.transform = "translate(0px, 0px)";
+  };
 
   return (
     <section
       id="learn"
-      className="w-full bg-white py-20 md:py-28 border-t border-gray-100"
+      className="py-28 bg-gradient-to-br from-sky-50 to-blue-50 overflow-hidden transition-transform duration-500"
+      ref={sectionRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-10 text-center">
-        {/* Heading */}
-        <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900">
-          Learn{" "}
-          <span className="bg-gradient-to-r from-yellow-500 to-yellow-700 bg-clip-text text-transparent">
-            With Us
-          </span>
+      <div className="max-w-7xl mx-auto px-6 md:px-10">
+        {/* Header */}
+        <div className="mb-16 text-center">
+           <h2 className="text-4xl font-semibold
+ text-center mb-3 text-sky-400">
+           Learn With Luxe Hair Studio
         </h2>
-        <p className="mt-4 text-gray-600 max-w-2xl mx-auto text-base md:text-lg">
-          Join our educational sessions and discover the science, artistry, and
-          confidence behind every strand.
-        </p>
+          <p className="mt-4 text-gray-700 text-lg md:text-2xl max-w-2xl mx-auto">
+            Master salon skills with expert tutorials, cutting-edge techniques, and insider tips.
+          </p>
+        </div>
 
-        {/* 6 Cards Grid */}
-        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {extendedTopics.map((topic, i) => (
-            <div
-              key={i}
-              className="bg-gray-50 rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-all group"
-            >
-              <div className="relative w-full h-56 overflow-hidden">
-                <img
-                  src={topic.img}
-                  alt={topic.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
+        {/* Carousel */}
+        <Swiper
+          modules={[Autoplay]}
+          spaceBetween={40}
+          slidesPerView={2.5}
+          loop={true}
+          freeMode={true}
+          speed={4000}
+          autoplay={{
+            delay: 0,
+            disableOnInteraction: false,
+          }}
+          breakpoints={{
+            320: { slidesPerView: 1 },
+            768: { slidesPerView: 1.5 },
+            1024: { slidesPerView: 2.5 },
+          }}
+          className="py-10"
+        >
+          {videos.map((v, i) => (
+            <SwiperSlide key={v.id + i} className="group">
+              <div className="bg-white rounded-3xl overflow-hidden">
+                {/* Embedded YouTube Video */}
+                <div className="relative w-full aspect-[16/9]">
+                  <iframe
+                    src={`https://www.youtube.com/embed/${v.id}`}
+                    title={v.title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="absolute top-0 left-0 w-full h-full rounded-t-3xl object-cover"
+                  ></iframe>
+                </div>
+
+                {/* Meta Info */}
+                <div className="px-8 py-6 text-center bg-gradient-to-b from-white to-gray-50">
+                  <h3 className="text-xl font-bold text-gray-900 group-hover:text-sky-600 transition-colors">
+                    {v.title}
+                  </h3>
+                  <p className="text-sm text-gray-500 mt-2">By Luxe Studio Experts</p>
+                  <div className="mt-4 flex justify-center">
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-sky-100 text-sky-800">
+                      Tutorial
+                    </span>
+                  </div>
+                </div>
               </div>
-              <div className="p-6 text-left">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  {topic.title}
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  {topic.desc}
-                </p>
-              </div>
-            </div>
+            </SwiperSlide>
           ))}
-        </div>
-
-        {/* CTA Button */}
-        <div className="mt-12">
-          <a
-            href="#book"
-            className="px-6 py-3 rounded-full bg-gradient-to-r from-yellow-500 to-yellow-700 text-white text-sm font-semibold shadow-sm hover:shadow-lg transition-all"
-          >
-            Join a Session
-          </a>
-        </div>
+        </Swiper>
       </div>
     </section>
   );

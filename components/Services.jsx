@@ -63,7 +63,7 @@ export default function Services() {
  text-center mb-3 text-sky-400">
            Services
         </h2>
-        <p className="text-center text-gray-600 text-lg mb-10">
+        <p className="mt-4 mb-9 text-gray-700 text-lg md:text-2xl max-w-2xl mx-auto">
           Discover professional grooming and styling crafted just for you.
         </p>
 

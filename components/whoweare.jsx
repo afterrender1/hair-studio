@@ -6,29 +6,31 @@ export default function WhoWeAre() {
   return (
     <section
       id="about"
-      className="w-full bg-gray-50 py-20 md:py-28 border-t border-gray-100"
+      className="w-full bg-sky-50 py-20 md:py-28 border-t border-sky-100"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-10 grid md:grid-cols-2 gap-12 items-center">
         {/* Left image */}
         <div className="relative">
           <div className="rounded-2xl overflow-hidden shadow-lg">
             <Image
-            height={600}
-            width={600}
-              src="/image.png"
+              height={600}
+              width={600}
+              src="/teamimg.png"
               alt="Professional hair stylist working with client"
-           
             />
           </div>
 
-          {/* Decorative gold ring */}
-          <div className="absolute -bottom-6 -right-6 w-32 h-32 border-4 border-yellow-500 rounded-full opacity-40 hidden md:block"></div>
+          {/* Decorative sky ring */}
+          <div className="absolute -bottom-6 -right-6 w-32 h-32 border-4 border-sky-400 rounded-full opacity-40 hidden md:block"></div>
         </div>
 
         {/* Right text content */}
         <div className="space-y-6">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 leading-tight">
-            Who <span className="bg-gradient-to-r from-yellow-500 to-yellow-700 bg-clip-text text-transparent">We Are</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
+            Who{" "}
+            <span className="bg-gradient-to-r from-sky-400 to-sky-600 bg-clip-text text-transparent">
+              We Are
+            </span>
           </h2>
 
           <p className="text-gray-600 text-base md:text-lg leading-relaxed">
@@ -47,7 +49,7 @@ export default function WhoWeAre() {
           <div className="pt-4">
             <a
               href="#services"
-              className="inline-block px-6 py-3 rounded-full bg-gradient-to-r from-yellow-500 to-yellow-700 text-white text-sm font-semibold shadow-sm hover:shadow-lg transition-all"
+              className="inline-block px-6 py-3 rounded-full bg-gradient-to-r from-sky-400 to-sky-600 text-white text-sm font-semibold shadow-sm hover:shadow-lg transition-all"
             >
               Explore Our Services
             </a>
