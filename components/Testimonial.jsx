@@ -51,21 +51,22 @@ export default function Testimonials() {
         </div>
 
         {/* Carousel */}
-        <Swiper
-          modules={[Autoplay]}
-          spaceBetween={30}
-          slidesPerView={1.1}
-          loop={true}
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-          }}
-          breakpoints={{
-            640: { slidesPerView: 2, spaceBetween: 20 },
-            1024: { slidesPerView: 3, spaceBetween: 30 },
-          }}
-          className="py-10"
-        >
+     <Swiper
+  modules={[Autoplay]}
+  spaceBetween={30}
+  slidesPerView={1.1}
+  loop={testimonials.length > 1} // loop only if more than 1 slide
+  autoplay={{
+    delay: 3000,
+    disableOnInteraction: false,
+  }}
+  breakpoints={{
+    640: { slidesPerView: Math.min(2, testimonials.length) },
+    1024: { slidesPerView: Math.min(3, testimonials.length) },
+  }}
+  className="py-10"
+>
+
           {testimonials.map((testimonial) => (
             <SwiperSlide key={testimonial.id}>
               <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-md hover:shadow-lg transition-all duration-300 flex flex-col h-full">
