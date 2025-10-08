@@ -28,7 +28,7 @@ const testimonials = [
   },
   {
     id: 3,
-    rating: 4,
+    rating: 5,
     text: "The mentorship I received from Diego Hair Studio was exactly what I needed to take my hairstyling career to the next level. Diego’s feedback is always constructive and inspiring.",
     name: "Logan Mitchell",
     role: "Hair Stylist — Los Angeles",

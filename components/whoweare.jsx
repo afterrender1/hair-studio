@@ -16,7 +16,7 @@ export default function WhoWeAre() {
               src="/teamimg.png"
               alt="Professional hair stylist working with client"
               fill
-              className="object-cover w-full h-full"
+              className="object-cover w-full h-full rounded-xl"
               priority
             />
           </div>
