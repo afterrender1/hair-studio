@@ -33,24 +33,18 @@ export default function Hero() {
   ];
 
   return (
-    <section
-      id="home"
-      className="relative w-full h-[700px] md:h-[750px] lg:h-[800px] overflow-hidden"
-    >
+    <section id="home" className="relative w-full overflow-hidden">
       <Swiper
         modules={[Autoplay, Pagination]}
         loop
-        autoplay={{
-          delay: 4000,
-          disableOnInteraction: false,
-        }}
+        autoplay={{ delay: 4000, disableOnInteraction: false }}
         pagination={{ clickable: true }}
-        className="w-full h-full"
+        className="w-full"
       >
         {slides.map((slide, i) => (
-          <SwiperSlide key={i} className="relative w-full h-full">
+          <SwiperSlide key={i} className="relative w-full">
             {/* Background Image */}
-            <div className="absolute inset-0 w-full h-full">
+            <div className="w-full h-[60vh] sm:h-[70vh] md:h-[75vh] lg:h-[80vh] xl:h-[90vh] relative">
               <Image
                 src={slide.img}
                 alt="Salon Hero Image"

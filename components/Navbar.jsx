@@ -94,9 +94,10 @@ export default function Navbar() {
           ))}
 
           {/* Contact Info */}
-          <p className="text-white font-semibold text-center mt-2 text-sm">
-            📞 +1 (555) 123-4567
-          </p>
+          <p className="font-semibold text-white flex items-center justify-center gap-2 text-sm lg:text-base">
+          <Phone className="text-sky-400 w-4 h-4 lg:w-5 lg:h-5" />
+          +1 (555) 123-4567
+        </p>
 
           {/* Mobile Button */}
           <a
