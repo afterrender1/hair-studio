@@ -39,7 +39,7 @@ const testimonials = [
 export default function Testimonials() {
   return (
     <section className="py-20 bg-sky-50" id="testimonials">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 ">
         {/* Header */}
         <div className="mb-12 text-center">
           <h2 className="text-4xl font-bold text-sky-400 mb-4">
@@ -69,9 +69,9 @@ export default function Testimonials() {
 
           {testimonials.map((testimonial) => (
             <SwiperSlide key={testimonial.id}>
-              <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-md hover:shadow-lg transition-all duration-300 flex flex-col h-full">
+              <div className="bg-white rounded-2xl p-6 border  border-sky-200 flex flex-col h-full">
                 {/* Rating */}
-                <div className="flex justify-center mb-4">
+                <div className="flex justify-center mb-4 ">
                   {Array.from({ length: testimonial.rating }, (_, i) => (
                     <span key={i} className="text-yellow-400 text-xl">★</span>
                   ))}

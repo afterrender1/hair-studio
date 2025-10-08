@@ -121,9 +121,9 @@ export default function Services() {
                 animate="visible"
                 exit="exit"
                 transition={{ duration: 0.15, delay: index * 0.03 }}
-                className="overflow-hidden rounded-xl sm:rounded-2xl shadow-lg bg-white hover:shadow-2xl hover:-translate-y-1 sm:hover:-translate-y-2 transform transition-all"
+                className="overflow-hidden rounded-xl border border-sky-200 p-3 sm:rounded-2xl shadow-lg bg-white hover:shadow-2xl hover:-translate-y-1 sm:hover:-translate-y-2 transform transition-all"
               >
-                <div className="relative w-full aspect-[4/5]">
+                <div className="relative w-full aspect-[4/5] ">
                   <Image
                     src={item.img}
                     alt={item.name}
