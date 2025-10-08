@@ -26,6 +26,8 @@ export default function Contact() {
     setIsSubmitting(true);
     try {
       await new Promise((resolve) => setTimeout(resolve, 1000));
+      console.log(formData);
+      
       setShowToast(true);
       setTimeout(() => {
         setShowToast(false);

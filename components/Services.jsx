@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
@@ -53,13 +53,20 @@ const allServices = {
 
 export default function Services() {
   const [filter, setFilter] = useState("Haircut");
+  const [mounted, setMounted] = useState(false); // ✅ add mounted state
   const filters = Object.keys(allServices);
+
+  useEffect(() => {
+    setMounted(true); // ✅ only render after client mount
+  }, []);
 
   const fadeUp = {
     hidden: { opacity: 0, scale: 0.85, y: 15 },
     visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.15, ease: "easeOut" } },
     exit: { opacity: 0, scale: 0.9, y: -10, transition: { duration: 0.12, ease: "easeIn" } },
   };
+
+  if (!mounted) return null; // ✅ prevent SSR mismatch
 
   return (
     <section className="py-16 md:py-20 bg-sky-50 overflow-hidden" id="services">
@@ -114,14 +121,14 @@ export default function Services() {
                 animate="visible"
                 exit="exit"
                 transition={{ duration: 0.15, delay: index * 0.03 }}
-                className="overflow-hidden rounded-2xl sm:rounded-3xl shadow-lg bg-white hover:shadow-2xl hover:-translate-y-1 sm:hover:-translate-y-2 transform transition-all"
+                className="overflow-hidden rounded-xl sm:rounded-2xl shadow-lg bg-white hover:shadow-2xl hover:-translate-y-1 sm:hover:-translate-y-2 transform transition-all"
               >
                 <div className="relative w-full aspect-[4/5]">
                   <Image
                     src={item.img}
                     alt={item.name}
                     fill
-                    className="object-cover rounded-2xl sm:rounded-3xl"
+                    className="object-cover rounded-xl sm:rounded-2xl"
                   />
                 </div>
                 <div className="text-center py-3 sm:py-4 px-2">
