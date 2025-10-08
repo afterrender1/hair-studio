@@ -25,14 +25,22 @@ export default function Contact() {
     if (!isFormValid) return;
     setIsSubmitting(true);
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      console.log(formData);
-      
-      setShowToast(true);
-      setTimeout(() => {
-        setShowToast(false);
-        setFormData({ name: "", email: "", experience: "", goals: "", message: "" });
-      }, 3000);
+ const res = await fetch("/api/contact", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(formData),
+});
+
+if (res.ok) {
+  setShowToast(true);
+  setTimeout(() => {
+    setShowToast(false);
+    setFormData({ name: "", email: "", experience: "", goals: "", message: "" });
+  }, 3000);
+} else {
+  console.log("Failed to send inquiry");
+}
+
     } catch (error) {
       console.error(error);
     } finally {
